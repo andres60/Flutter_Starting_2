@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
-import 'package:flutter/widgets.dart';
+import './quote.dart';
 
 void main() => runApp(MaterialApp(
   home: QuoteList(),
@@ -13,11 +12,13 @@ class QuoteList extends StatefulWidget {
 
 class _QuoteListState extends State<QuoteList> {
 
-  List<String> quotes = [
-    '- In my opinion MS is a lot better at making money than it is at making good operating systems',
-    '- A computer is like air conditioning, it becomes useless when you open Windows',
-    '- Talk is cheap, show me the code',
-    '- Software is like sex: it\'s better when it\'s free',
+
+
+  List<Quote> quotes = [
+    Quote(author: 'Linus Torvalds', text: 'In my opinion MS is a lot better at making money than it is at making good operating systems'),
+    Quote(author: 'Linus v2', text: 'A computer is like air conditioning, it becomes useless when you open Windows'),
+    Quote(text: 'Talk is cheap, show me the code', author: 'linus Direct'),
+    Quote(author: 'Linus Naughty', text: 'Software is like sex: it\'s better when it\'s free'),
   ];
 
   @override
@@ -36,7 +37,7 @@ class _QuoteListState extends State<QuoteList> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: quotes.map((quote) => Text(
-            quote,
+            '${quote.text} - ${quote.author}',
             style: TextStyle(
               fontSize: 18.0,
               letterSpacing: 1.0,
